@@ -1,0 +1,91 @@
+.gh-form{
+
+    &--inline{
+        @include flex;
+        width: 100%;
+    }
+
+    &__group{
+        margin-right: 1.6rem;
+        position: relative;
+        flex: 1;
+        min-width: 16rem;
+
+        @include sm{
+            min-width: 15rem;
+        }
+
+        &.gh__header__nav__search{
+            // width: 100%;
+            // max-width: 50rem;
+            &::after{
+                position: absolute;
+                display: block;
+                height: 70%;
+                content: "";
+                width: 1.8rem;
+                border: solid 1px rgba($grey--light, .3);
+                border-radius: .3rem;
+                z-index: 100;
+                right: .5rem;
+                top: 17%;
+                box-sizing: border-box;
+            }
+
+            &::before{
+                position: absolute;
+                content: "";
+                height: 35%;
+                width: 1px;
+                background: rgba($grey--light, .5);
+                right: 1.4rem;
+                top: 50%;
+                transform: rotate(25deg) translate(-1px, -40%);
+            }
+        }
+    }
+
+    &__input{
+        border:  solid 1px $grey--light;
+        background: #fff;
+        padding: .7rem 1.2rem;
+        border-radius: .6rem;
+        font-size: 1.4rem;
+        position: relative;
+        color: $dark;
+        transition: .4s ease all;
+        width: 100%;
+
+        &::placeholder{
+            color: $grey;
+        }
+
+        &:focus,
+        &:active{
+            border-color: $blue;
+            box-shadow: 0 0 0 3px rgba($blue, .2);
+        }
+
+        &--dark{
+            background: hsla(0,0%,100%,.125);
+            border-color: transparent;
+            color: $light;
+            padding: .5rem 1.2rem;
+
+            &:focus,
+            &:active{
+                background: #fff;
+                border-color: transparent;
+                color: $dark;
+
+                &::placeholder{
+                    color: $grey;
+                }
+            }
+
+            &::placeholder{
+                color: $grey--light;
+            }
+        }
+    }
+}

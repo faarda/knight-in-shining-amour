@@ -1,0 +1,49 @@
+.gh-btn{
+    @include flex;
+    justify-content: center;
+    display: inline-flex;
+    cursor: pointer;
+    border: solid 1px $grey--light;
+    padding: .65rem 1.5rem;
+    border-radius: .5rem;
+    transition: .3s ease-in all;
+    font-weight: 500;
+
+    &--light{
+        background-color: $light;
+        color: $dark;
+
+        &:hover{
+            background: rgba($grey, .065);
+        }
+    }
+
+    &--primary{
+        background: $primary;
+        color: $light;
+        border: solid 1px rgba($grey, .3);
+
+        &:hover{
+            background: #2c974b;
+        }
+    }
+
+    &--block{
+        display: flex;
+        width: 100%;
+    }
+
+    .icon{
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+    &--sm{
+        font-size: 1.2rem;
+
+        .icon{
+            width: 1.4rem;
+            height: 1.4rem;
+        } 
+    }
+}

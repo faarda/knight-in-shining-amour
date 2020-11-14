@@ -1,0 +1,209 @@
+.gh__header{
+    background: $dark;
+    @include flex;
+    justify-content: space-between;
+    padding: .9rem 1.6rem;
+    color: $light;
+    position: relative;
+
+    @include sm{
+        padding: 1.45rem 1.6rem;
+    }
+
+    &__logo{
+        @include not-sm{
+            margin-right: 1.5rem;
+        }
+
+        svg{
+            width: 3.2rem;
+            height: 3.2rem;
+            fill: currentColor;
+        }
+    }
+
+    &__left{
+        @include flex;
+    }
+
+    &__nav{
+        @include flex;
+        flex: 1;
+
+        &__list{
+            @include flex;
+        }
+
+        &__search{
+            margin-right: 1.5rem;
+        }
+
+        &__item{
+            padding: .5rem;
+            margin-right: .5rem;  
+        }
+
+        button, &__link{
+            color: currentColor;
+            font-weight: 500;
+            transition: .2s ease-in all;
+
+            &:hover{
+                color: rgba($light, .8);
+            }
+        }
+
+        .gh-form{
+            width: 100%;
+
+            @include not-sm{
+                max-width: 25rem;
+            }
+        }
+
+        @include sm{
+            position: absolute;
+            width: 100%;
+            padding: 1.6rem;
+            background: $dark;
+            flex-direction: column;
+            left: 0;
+            top: 100%;
+            z-index: 15000;
+            height: 0;
+            overflow: hidden;
+            display: none;
+            transition: .3s ease-in all;
+
+            &__search{
+                padding: 0 0 1.6rem 0;
+                border-bottom: 1px solid rgba($light, .2);
+
+                &::before,
+                &::after{
+                    display: none !important;
+                }
+            }
+
+            &__list{
+                flex-direction: column;
+                width: 100%;
+            }
+
+            &__item{
+                padding: 1rem;
+                margin-right: 0;  
+                @include flex;
+                width: 100%;
+
+                &:not(:last-child){
+                    border-bottom: 1px solid rgba($light, .2);
+                }
+            }
+        }
+    }
+
+    &__actions{
+        @include flex;
+
+        &__action{
+            @include flex;
+            position: relative;
+
+            &:not(:last-child){
+                margin-right: 1rem;
+            }
+
+            .feather:not(.caret){
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+
+            &.notif{
+                &::after{
+                    position: absolute;
+                    content: "";
+                    height: 1rem;
+                    width: 1rem;
+                    border-radius: 50%;
+                    background: $blue;
+                    background-image: linear-gradient(#54a3ff,#006eed);
+                    border: solid 2px $dark;
+                    top: -5px;
+                    right: -2px;
+                }
+            }
+        }
+    }
+
+    &__user{
+        background: transparent;
+        border: none;
+        @include flex;
+        color: $light;
+
+        &__img{
+            width: 2rem;
+            height: 2rem;
+            margin-right: .5rem;
+
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+    }
+
+    &__toggle{
+        &-checkbox{
+            display: none;
+
+            &:checked ~ .gh__header__nav{
+                display: block;
+                height: auto;
+            }
+        }
+
+        display: block;
+        cursor: pointer;
+        position: relative;
+        padding: 1.2rem .2rem;
+
+        &__inner{
+            position: relative;
+            height: .2rem;
+            width: 2rem;
+            background-color: $light;
+            transition: all .25s;
+
+            &:hover{
+                background-color: rgba($light, .8);
+
+                &::before,
+                &::after{
+                    background-color: rgba($light, .8);
+                }
+            }
+
+            &::before,
+            &::after{
+                content: "";
+                position: absolute;
+                display: block;
+                height: .2rem;
+                width: 2rem;
+                background-color: $light;
+                transition: all .25s;
+            }
+
+            &::before{
+                top: -.7rem;
+            }
+
+            &::after{
+                top: .7rem;
+            }
+        }
+    }
+}

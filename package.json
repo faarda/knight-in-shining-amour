@@ -1,0 +1,19 @@
+{
+  "name": "github-clone-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "node-sass app/scss/styles.scss app/css/style.css -w",
+    "compile:sass": "node-sass app/sass/main.scss app/css/style.comp.css",
+    "concat:sass": "concat -o app/css/style.concat.css app/css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' app/css/style.concat.css -o app/css/style.prefix.css",
+    "compress:css": "node-sass app/css/style.prefix.css app/css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:sass prefix:css compress:css"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}

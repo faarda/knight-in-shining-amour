@@ -1,0 +1,118 @@
+.gh-tabs{
+    &__container{
+        border-bottom: solid 1px $grey--light;
+        margin-top: 2.4rem;
+        background: #fff;
+        z-index: 1000;
+        
+        &__inner{
+            @include flex;
+            padding: 0 1.6rem;
+            max-width: 128rem;
+            margin: 0 auto;
+            position: relative;
+
+            &::before{
+                @include not-sm{
+                    content: "";
+                    position: relative;
+                    display: block;
+                    left: 0;
+                    width: 25%;
+                    padding: 0 1.6rem;
+                    box-sizing: border-box;
+                }
+            }
+        }
+
+        &.fixed{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            margin-top: 0;
+        }
+
+
+    }
+
+    @include flex;
+    // width: 72%;
+    flex: 1;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding: 0 1.6rem;
+
+    &__user{
+        @include flex;
+        font-weight: 500;
+        position: absolute;
+        left: 3.2rem;
+        visibility: hidden;
+
+        @include sm{
+            display: none;
+        }
+
+        &.visible{
+            visibility: visible;
+        }
+
+        &__img{
+            width: 3rem;
+            height: 3rem;
+            margin-right: .5rem;
+            
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+            }
+        }
+    }
+
+
+    &__tab{
+        // margin-right: 1rem;
+        &__link{
+            padding: 1rem 1.6rem;
+            line-height: 2.5rem;
+            @include flex;
+            color: $dark;
+            cursor: pointer;
+            border-bottom: solid 2px transparent;
+            transition: .2s ease-in all;
+
+            &:not(.active):hover{
+                border-color: $grey--light;
+            }
+
+            &.active{
+                .icon{
+                    color: $dark;
+                }
+
+                border-color: $orange;
+                font-weight: 500;
+            }
+
+            .icon{
+                color: $grey--x;
+                margin-right: .5rem;
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+        }
+    }
+
+    
+}
+
+.pill{
+    font-size: 1.1rem;
+    padding: .3rem .7rem;
+    border-radius: 30px;
+    display: inline-block;
+    background: $grey--light;
+    margin-left: 1rem;
+    line-height: 1.1rem;
+}

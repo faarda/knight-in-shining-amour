@@ -1,0 +1,46 @@
+@mixin xs() {
+    @media screen and (max-width: 300px) {
+        @content
+    }
+}
+
+@mixin vs() {
+    @media screen and (max-width: 390px) {
+        @content
+    }
+}
+
+@mixin sm() {
+    @media screen and (max-width: 770px) {
+        @content
+    }
+}
+
+@mixin not-sm() {
+    @media screen and (min-width: 771px) {
+        @content
+    }
+}
+
+@mixin md() {
+    @media screen and (min-width: 771px) and (max-width: 1100px) {
+        @content
+    }
+}
+
+@mixin lg() {
+    @media screen and (min-width: 1100px) {
+        @content
+    }
+}
+
+@mixin xl() {
+    @media screen and (min-width: 1400px) {
+        @content
+    }
+}
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
